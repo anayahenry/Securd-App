@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register - Securd App</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body {
+      background-color: #003366;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .register-box {
+      background-color: white;
+      color: #003366;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #FFD700;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .gold-button {
+      background-color: #FFD700;
+      color: #003366;
+      padding: 0.75rem 2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1rem;
+      margin-top: 1.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+
+    .gold-button:hover {
+      background-color: #e6c200;
+    }
+
+    .checkbox-label {
+      margin-top: 1.5rem;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Register</h1>
+
+  <div class="register-box">
+    <form action="dashboard.html" method="GET">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required>
+
+      <label for="student_id">Student ID:</label>
+      <input type="text" id="student_id" name="student_id" required>
+
+      <label for="classification">Classification:</label>
+      <input type="text" id="classification" name="classification" required>
+
+      <label for="pin">8-Digit Code:</label>
+      <input type="password" id="pin" name="pin" pattern="\d{8}" title="Enter exactly 8 digits" required>
+
+      <label for="security_question">Security Question:</label>
+      <select id="security_question" name="security_question" required>
+        <option value="" disabled selected>Select a question</option>
+        <option value="pet">What is your pet’s name?</option>
+        <option value="school">What is your first school’s name?</option>
+        <option value="color">What is your favorite color?</option>
+        <option value="city">What city were you born in?</option>
+        <option value="nickname">What was your childhood nickname?</option>
+      </select>
+
+      <label for="security_answer">Answer:</label>
+      <input type="text" id="security_answer" name="security_answer" required>
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="consent" name="consent" required>
+        I understand that my participation is voluntary and my data will be securely stored.
+      </label>
+
+      <button type="submit" class="gold-button">Register</button>
+    </form>
+  </div>
+
+</body>
+</html>

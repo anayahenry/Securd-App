@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cybersecurity Quiz - Securd App</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body {
+      background-color: #003366;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      color: #FFD700;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .quiz-box {
+      background-color: white;
+      color: #003366;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .answers button {
+      display: block;
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.75rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .correct {
+      background-color: #4CAF50 !important; /* Green */
+      color: white;
+    }
+
+    .wrong {
+      background-color: #f44336 !important; /* Red */
+      color: white;
+    }
+
+    .gold-button {
+      background-color: #FFD700;
+      color: #003366;
+      padding: 0.75rem 2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1rem;
+      display: inline-block;
+      margin-top: 2rem;
+    }
+
+    .gold-button:hover {
+      background-color: #e6c200;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Cybersecurity Quiz</h1>
+
+  <div class="quiz-box" id="quiz-box">
+    <p class="question" id="question-text"></p>
+    <div class="answers" id="answer-buttons"></div>
+  </div>
+
+  <div style="display:none;" id="quiz-complete">
+    <h2 style="color:#FFD700;">🎉 Quiz Complete!</h2>
+    <p>Great job! You’ve reached the end of the quiz.</p>
+    <a href="dashboard.html" class="gold-button">Back to Dashboard</a>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "What is phishing?",
+        options: ["A security software", "A trick to steal login info", "A social media scam", "A type of malware"],
+        correct: 1
+      },
+      {
+        question: "Which password is strongest?",
+        options: ["12345678", "MySchool2022", "!K9&xW8#zR", "password1"],
+        correct: 2
+      },
+      {
+        question: "What does 2FA stand for?",
+        options: ["Two-Factor Authentication", "Twice Filtered Access", "Two Firewall Accounts", "Tech Fraud Authority"],
+        correct: 0
+      },
+      {
+        question: "Which is a red flag in scam emails?",
+        options: ["Formal greeting", "Sender name", "Poor grammar and urgent requests", "No links"],
+        correct: 2
+      },
+      {
+        question: "Why is public Wi-Fi risky?",
+        options: ["It’s slow", "Anyone can intercept your data", "It’s encrypted", "It costs more"],
+        correct: 1
+      }
+    ];
+
+    let currentIndex = 0;
+    const questionText = document.getElementById("question-text");
+    const answerButtons = document.getElementById("answer-buttons");
+    const quizBox = document.getElementById("quiz-box");
+    const quizComplete = document.getElementById("quiz-complete");
+
+    function showQuestion(index) {
+      const q = questions[index];
+      questionText.textContent = `${index + 1}. ${q.question}`;
+      answerButtons.innerHTML = "";
+
+      q.options.forEach((opt, i) => {
+        const btn = document.createElement("button");
+        btn.textContent = opt;
+        btn.addEventListener("click", () => handleAnswer(i, q.correct, btn));
+        answerButtons.appendChild(btn);
+      });
+    }
+
+    function handleAnswer(selected, correct, buttonClicked) {
+      const buttons = answerButtons.querySelectorAll("button");
+
+      buttons.forEach((btn, i) => {
+        btn.disabled = true;
+        if (i === correct) {
+          btn.classList.add("correct");
+        } else if (i === selected) {
+          btn.classList.add("wrong");
+        }
+      });
+
+      setTimeout(() => {
+        currentIndex++;
+        if (currentIndex < questions.length) {
+          showQuestion(currentIndex);
+        } else {
+          quizBox.style.display = "none";
+          quizComplete.style.display = "block";
+        }
+      }, 1500);
+    }
+
+    showQuestion(currentIndex);
+  </script>
+</body>
+</html>
+

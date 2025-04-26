@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cybersecurity Education - Securd App</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body {
+      background-color: #003366;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #FFD700;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .education-container {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .accordion {
+      background-color: #FFD700;
+      color: #003366;
+      cursor: pointer;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 8px;
+      text-align: left;
+      width: 100%;
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .accordion:hover {
+      background-color: #e6c200;
+    }
+
+    .panel {
+      padding: 1rem;
+      display: none;
+      background-color: white;
+      color: #003366;
+      width: 100%;
+      border-radius: 0 0 10px 10px;
+      line-height: 1.6;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .gold-button {
+      background-color: #FFD700;
+      color: #003366;
+      padding: 0.75rem 2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .gold-button:hover {
+      background-color: #e6c200;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Cybersecurity Education</h1>
+
+  <div class="education-container">
+    <button class="accordion">1. Protecting Personal & Institutional Data</button>
+    <div class="panel">
+      <p>
+        Personal data includes things like your full name, student ID, birthdate, passwords, and browsing habits. Institutional data includes faculty emails, course files, grade reports, and university systems.
+      </p>
+      <ul>
+        <li>Use strong, unique passwords for school-related accounts</li>
+        <li>Enable two-factor authentication (2FA)</li>
+        <li>Lock your devices when unattended</li>
+        <li>Access school files through secure networks</li>
+      </ul>
+    </div>
+
+    <button class="accordion">2. Avoiding Scams</button>
+    <div class="panel">
+      <p>
+        Scams often impersonate trusted sources. Common scams include fake job offers, phishing emails, and tech support scams.
+      </p>
+      <ul>
+        <li>Don't click suspicious links or download unknown attachments</li>
+        <li>Verify sender email addresses carefully</li>
+        <li>Report suspicious activity to IT support immediately</li>
+      </ul>
+    </div>
+
+    <button class="accordion">3. Investigating Unethical Use of Technology</button>
+    <div class="panel">
+      <p>
+        Unethical tech use includes cheating via digital devices, unauthorized access to systems, and spreading malware intentionally.
+      </p>
+      <ul>
+        <li>Respect privacy and academic conduct codes</li>
+        <li>Report breaches of technology policy</li>
+        <li>Promote responsible technology use among peers</li>
+      </ul>
+    </div>
+
+    <button class="accordion">4. Understanding Personal Security</button>
+    <div class="panel">
+      <p>
+        Protect yourself online by controlling what you share and staying aware of evolving threats.
+      </p>
+      <ul>
+        <li>Use privacy settings on social media</li>
+        <li>Connect only to secure Wi-Fi networks</li>
+        <li>Regularly update your devices and apps</li>
+        <li>Be cautious of public computers and shared devices</li>
+      </ul>
+    </div>
+
+    <div class="button-container">
+      <a href="dashboard.html" class="gold-button">Back to Dashboard</a>
+    </div>
+  </div>
+
+  <script>
+    const accordions = document.querySelectorAll(".accordion");
+    accordions.forEach(btn => {
+      btn.addEventListener("click", function () {
+        this.classList.toggle("active");
+        const panel = this.nextElementSibling;
+        panel.style.display = panel.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script>
+
+</body>
+</html>
+
